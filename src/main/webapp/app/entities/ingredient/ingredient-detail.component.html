@@ -1,0 +1,73 @@
+
+<div *ngIf="ingredient">
+    <h2><span>Ingredient</span> {{ingredient.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{ingredient.name}}</span>
+        </dd>
+        <dt><span>Average Weigth</span></dt>
+        <dd>
+            <span>{{ingredient.averageWeigth}}</span>
+        </dd>
+        <dt><span>Average Weight Unit</span></dt>
+        <dd>
+            <span>{{ingredient.averageWeightUnit}}</span>
+        </dd>
+        <dt><span>Protein</span></dt>
+        <dd>
+            <span>{{ingredient.protein}}</span>
+        </dd>
+        <dt><span>Lipid</span></dt>
+        <dd>
+            <span>{{ingredient.lipid}}</span>
+        </dd>
+        <dt><span>Saturated Fatty Acid</span></dt>
+        <dd>
+            <span>{{ingredient.saturatedFattyAcid}}</span>
+        </dd>
+        <dt><span>Polyunsaturated Fatty Acids</span></dt>
+        <dd>
+            <span>{{ingredient.polyunsaturatedFattyAcids}}</span>
+        </dd>
+        <dt><span>Saturated Fats</span></dt>
+        <dd>
+            <span>{{ingredient.saturatedFats}}</span>
+        </dd>
+        <dt><span>Glucid</span></dt>
+        <dd>
+            <span>{{ingredient.glucid}}</span>
+        </dd>
+        <dt><span>Sugar</span></dt>
+        <dd>
+            <span>{{ingredient.sugar}}</span>
+        </dd>
+        <dt><span>Fiber</span></dt>
+        <dd>
+            <span>{{ingredient.fiber}}</span>
+        </dd>
+        <dt><span>Potassium</span></dt>
+        <dd>
+            <span>{{ingredient.potassium}}</span>
+        </dd>
+        <dt><span>Sodium</span></dt>
+        <dd>
+            <span>{{ingredient.sodium}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ingredient/'+ ingredient.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

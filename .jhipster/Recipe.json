@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "tools",
+            "otherEntityName": "tool",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ingredients",
+            "otherEntityName": "ingredientRecipe",
+            "otherEntityRelationshipName": "recipe"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170518114710",
+    "entityTableName": "recipe",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no"
+}

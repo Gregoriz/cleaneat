@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ingredient",
+            "otherEntityName": "ingredient",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "recipe",
+            "otherEntityName": "recipe",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "measureUnit",
+            "fieldType": "MeasureUnit",
+            "fieldValues": "G,L,PIECE"
+        }
+    ],
+    "changelogDate": "20170518114712",
+    "entityTableName": "ingredient_recipe",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

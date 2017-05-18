@@ -1,0 +1,59 @@
+enum MeasureUnit {
+    G,
+    L,
+    PIECE
+}
+
+entity UserDummy{
+	weight Double required
+    height Integer required
+    dailyEnergyRequired Integer required
+}
+
+entity Tool {
+	name String required
+}
+
+relationship ManyToMany {
+	Recipe{tools} to Tool
+}
+
+entity Recipe {
+	description String required
+}
+
+entity Ingredient {
+	name String required
+
+    averageWeigth Double
+    averageWeightUnit MeasureUnit
+
+    protein Double required
+
+    lipid Double required
+    saturatedFattyAcid Double required
+    polyunsaturatedFattyAcids Double required
+    saturatedFats Double required
+
+    glucid Double required
+    sugar Double required
+
+    fiber Double required
+    potassium Integer required
+    sodium Integer required
+}
+
+entity IngredientRecipe {
+    quantity Double
+    measureUnit MeasureUnit
+}
+
+relationship ManyToOne {
+	IngredientRecipe{ingredient} to Ingredient
+}
+
+relationship ManyToOne {
+	IngredientRecipe{recipe} to Recipe{ingredients}
+}
+
+paginate Ingredient, Recipe with infinite-scroll

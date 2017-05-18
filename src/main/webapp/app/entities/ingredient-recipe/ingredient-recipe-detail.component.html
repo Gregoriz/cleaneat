@@ -1,0 +1,41 @@
+
+<div *ngIf="ingredientRecipe">
+    <h2><span>Ingredient Recipe</span> {{ingredientRecipe.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Quantity</span></dt>
+        <dd>
+            <span>{{ingredientRecipe.quantity}}</span>
+        </dd>
+        <dt><span>Measure Unit</span></dt>
+        <dd>
+            <span>{{ingredientRecipe.measureUnit}}</span>
+        </dd>
+        <dt><span>Ingredient</span></dt>
+        <dd>
+            <div *ngIf="ingredientRecipe.ingredient">
+                <a [routerLink]="['/ingredient', ingredientRecipe.ingredient?.id]">{{ingredientRecipe.ingredient?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Recipe</span></dt>
+        <dd>
+            <div *ngIf="ingredientRecipe.recipe">
+                <a [routerLink]="['/recipe', ingredientRecipe.recipe?.id]">{{ingredientRecipe.recipe?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ingredient-recipe/'+ ingredientRecipe.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
